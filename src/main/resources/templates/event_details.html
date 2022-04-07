@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Events</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+		<div class="example">
+		<div id="header">
+			<nav class="navbar navbar-inverse">
+				<div class="navbar-header">
+					<a href="/" class="navbar-brand">Trang chủ</a>
+				</div>
+
+				<div class="navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="">Giới thiệu</a></li>
+						<li><a href="">Tin tức</a></li>
+						<li><a href="">Thương hiệu</a></li>
+						<li><a href="">Liên hệ</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+	</div>
+	<div class="container">
+		<h1 style="text-align: center;">Registrations of Event [[${event.event_name}]]</h1>
+		<div class="table-responsive">
+			<form th:action="@{/}" method="GET">
+				<input id="txtSearch" type="text" name="keyword">
+				<button type="submit">GO</button>
+			</form>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>First Name</th>
+						<th>Day of birth</th>
+						<th>Email</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="data, i: ${listUser}">
+						<td th:text="${i.count}"></td>
+						<td th:text="${data.first_name}"></td>
+						<td th:text="${data.day_of_birth}"></td>
+						<td th:text="${data.email}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
